@@ -59,7 +59,7 @@ const DataPage = () => {
               y: plotData.y,
               type: 'scatter',
               mode: 'lines+markers',
-              marker: { color: 'red' },
+              marker: { color: 'green' },
             },
           ]}
           layout={
