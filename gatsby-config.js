@@ -6,6 +6,7 @@ module.exports = {
     title: `My Gatsby Site`,
     siteUrl: `https://www.yourdomain.tld`
   },
+  pathPrefix: "/test-static-generator",
   plugins: [
     "gatsby-plugin-styled-components",
     {
