@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `My Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://jackarnold84.github.io/test-static-generator/`
   },
   pathPrefix: "/test-static-generator",
   plugins: [
