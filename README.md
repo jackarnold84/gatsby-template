@@ -1,7 +1,27 @@
-# Test Static Site Generator
+# Gatsby Template
 
-Test static site generators on github pages (ex: Gastby)
+Template for gatsby site.
 
-To deploy to gihub pages: `npm run deploy`
+See `package.json` for develpment commands
+- `npm start`
+- `npm serve`
+- `npm deploy` (to GitHub pages)
 
-https://jackarnold84.github.io/test-static-generator/
+## Update List
+
+Update the following to customize your app
+
+### [`package.json`](/package.json)
+- project metadata
+- delete any unnecessary dependencies
+
+### [`gatsby-config.js`](/gatsby-config.js)
+- metadata
+- site url + path prefix (to match GitHub repo) for deployment
+- theme + background color
+- icon path
+
+### [`Layout.js`](/src/components/Layout.js)
+- Header, footer, navigation menu
+- Body max width
+- Antd theme ([ConfigProvider](https://ant.design/docs/react/customize-theme))

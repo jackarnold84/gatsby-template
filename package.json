@@ -11,11 +11,13 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 0.0.0.0",
     "clean": "gatsby clean",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.1",
+    "antd": "^5.15.2",
     "babel-plugin-styled-components": "^2.1.1",
     "gatsby": "^5.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
