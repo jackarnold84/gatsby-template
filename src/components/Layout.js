@@ -63,16 +63,16 @@ const Layout = ({ children }) => {
         }}
       >
         <div>
-          <Link to="/" className="plain-link">
-            <Header>
-              <HeaderContent>
-                <MenuButtonHolder>
-                  <Button type="primary" icon={<MenuOutlined />} onClick={showMenu} />
-                </MenuButtonHolder>
-                <h2>Gatsby Template</h2>
-              </HeaderContent>
-            </Header>
-          </Link>
+          <Header>
+            <HeaderContent>
+              <MenuButtonHolder>
+                <Button type="primary" icon={<MenuOutlined />} onClick={showMenu} />
+              </MenuButtonHolder>
+              <Link to="/" className="plain-link white-text">
+                <h3>Gatsby Template</h3>
+              </Link>
+            </HeaderContent>
+          </Header>
         </div>
 
         <BodyContainer>
