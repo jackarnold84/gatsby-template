@@ -16,7 +16,7 @@ const Navigation = () => {
           Plotly
         </Button>
       </Link>
-      <Link to="/fetcher">
+      <Link to="/api">
         <Button type="text" icon={<NodeIndexOutlined />} size="large" block>
           API
         </Button>

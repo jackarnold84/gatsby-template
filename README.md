@@ -3,9 +3,10 @@
 Template for gatsby site.
 
 See `package.json` for develpment commands
-- `npm start`
-- `npm serve`
-- `npm deploy` (to GitHub pages)
+- `npm run start`
+- `npm run build`
+- `npm run serve`
+- `npm run deploy` (to GitHub pages)
 
 ## Update List
 
