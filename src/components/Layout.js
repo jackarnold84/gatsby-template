@@ -11,7 +11,7 @@ import Span from "./common/Span"
 
 const Header = styled.div`
   padding: 24px;
-  background-color: ${palette.purple};
+  background-color: ${palette.primary};
   color: white;
   text-align: center;
 `
@@ -32,7 +32,7 @@ const BodyContainer = styled.div`
 const Footer = styled.div`
   padding: 8px 0;
   text-align: center;
-  background-color: ${palette.purple};
+  background-color: ${palette.primary};
 `
 
 const MenuButtonHolder = styled.div`
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: palette.purple,
+            colorPrimary: palette.primary,
             fontFamily: "'Source Sans Pro', sans-serif",
             fontSize: 16,
           },

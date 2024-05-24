@@ -23,6 +23,7 @@ Update the following to customize your app
 - icon path
 
 ### [`Layout.js`](/src/components/Layout.js)
-- Header, footer, navigation menu
+- Header, footer
+- Navigation menu
 - Body max width
 - Antd theme ([ConfigProvider](https://ant.design/docs/react/customize-theme))
