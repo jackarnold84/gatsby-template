@@ -7,6 +7,7 @@ import '../styles/global.css'
 import '../styles/icons.css'
 import { palette } from "../utils/palette"
 import Navigation from "./Navigation"
+import BootIcon from "./common/BootIcon"
 import Span from "./common/Span"
 
 const Header = styled.div`
@@ -88,12 +89,12 @@ const Layout = ({ children }) => {
             <Span>
               <Button
                 type="text"
-                href="https://github.com/jackarnold84/gatsby-template"
                 size="small"
                 style={{ color: "white", fontSize: "14px" }}
+                icon={<BootIcon name="github" />}
+                href="https://github.com/jackarnold84/gatsby-template"
               >
-                <i className="bi-github" />
-                <Span left={4}>Github</Span>
+                Github
               </Button>
             </Span>
           </div>
