@@ -17,6 +17,12 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <Container size={16} centered>
+        <h2>Gatsby Template</h2>
+        <p>Starter template for Gatsby projects with various reusable components</p>
+      </Container>
+
+
       <Container size={16} width={400}>
         <SectionHeader>Sign In Form</SectionHeader>
         <Form

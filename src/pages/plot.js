@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import Container from "../components/common/Container"
 import Plot from "../components/common/Plot"
+import { palette } from "../utils/palette"
 
 
 const PlotPage = () => {
@@ -26,6 +27,7 @@ const PlotPage = () => {
               y: [10, 15, 13, 17, 18, 20, 19, 15, 16, 14],
               type: 'scatter',
               hovertemplate: '<b>Week %{x}</b><br>%{y} sold',
+              marker: { color: palette.purple },
             }
           ]}
           layout={{

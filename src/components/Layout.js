@@ -5,12 +5,13 @@ import * as React from "react"
 import styled from "styled-components"
 import '../styles/global.css'
 import '../styles/icons.css'
-import Span from "./common/Span"
+import { palette } from "../utils/palette"
 import Navigation from "./Navigation"
+import Span from "./common/Span"
 
 const Header = styled.div`
   padding: 24px;
-  background-color: #1c5db7;
+  background-color: ${palette.purple};
   color: white;
   text-align: center;
 `
@@ -31,7 +32,7 @@ const BodyContainer = styled.div`
 const Footer = styled.div`
   padding: 8px 0;
   text-align: center;
-  background-color: #1c5db7;
+  background-color: ${palette.purple};
 `
 
 const MenuButtonHolder = styled.div`
@@ -56,7 +57,7 @@ const Layout = ({ children }) => {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: '#1c5db7',
+            colorPrimary: palette.purple,
             fontFamily: "'Source Sans Pro', sans-serif",
             fontSize: 16,
           },
@@ -100,8 +101,8 @@ const Layout = ({ children }) => {
       </ConfigProvider>
 
       <Drawer title="Gatsby Template" onClose={closeMenu} open={openMenu} placement="top">
-        <Navigation />
-      </Drawer>
+        <Navigation closeMenu={closeMenu} />
+      </Drawer >
     </>
   )
 }
