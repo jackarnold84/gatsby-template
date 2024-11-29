@@ -2,12 +2,11 @@ import { MenuOutlined } from "@ant-design/icons"
 import { Button, ConfigProvider, Drawer } from "antd"
 import { Link } from "gatsby"
 import * as React from "react"
+import { BiLogoGithub } from "react-icons/bi"
 import styled from "styled-components"
 import '../styles/global.css'
-import '../styles/icons.css'
 import { palette } from "../utils/palette"
 import Navigation from "./Navigation"
-import BootIcon from "./common/BootIcon"
 import Span from "./common/Span"
 
 const Header = styled.div`
@@ -34,6 +33,12 @@ const Footer = styled.div`
   padding: 8px 0;
   text-align: center;
   background-color: ${palette.primary};
+`
+
+const FooterContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const MenuButtonHolder = styled.div`
@@ -82,7 +87,7 @@ const Layout = ({ children }) => {
         </BodyContainer>
 
         <Footer>
-          <div className="white-text subtext">
+          <FooterContent className="white-text subtext">
             <Span style={{ fontSize: "14px" }}>
               Created by Jack Arnold
             </Span>
@@ -90,14 +95,14 @@ const Layout = ({ children }) => {
               <Button
                 type="text"
                 size="small"
-                style={{ color: "white", fontSize: "14px" }}
-                icon={<BootIcon name="github" />}
+                style={{ color: "white", fontSize: "14px", textDecoration: "none" }}
+                icon={<BiLogoGithub />}
                 href="https://github.com/jackarnold84/gatsby-template"
               >
                 Github
               </Button>
             </Span>
-          </div>
+          </FooterContent>
         </Footer>
       </ConfigProvider>
 
