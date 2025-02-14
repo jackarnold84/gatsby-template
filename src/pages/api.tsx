@@ -1,13 +1,23 @@
-import { Avatar, List, Skeleton } from "antd"
-import React from "react"
-import Layout from "../components/Layout"
-import Container from "../components/common/Container"
+import { Avatar, List, Skeleton } from "antd";
+import React from "react";
+import Layout from "../components/Layout";
+import Container from "../components/common/Container";
 
-const ApiPage = () => {
+interface TeamData {
+  name: string;
+  abbreviation: string;
+  color: string;
+}
 
+const ApiPage: React.FC = () => {
   const [isReady, setIsReady] = React.useState(false)
   const [isError, setIsError] = React.useState(false)
-  const [mlbTeamData, setMlbTeamData] = React.useState([{}, {}, {}])
+  const [mlbTeamData, setMlbTeamData] = React.useState<TeamData[]>([])
+
+  const skeletonData = Array.from({ length: 5 }).map(() => ({
+    name: '', abbreviation: '', color: '',
+  }));
+
   React.useEffect(() => {
     const baseUrl = 'https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams';
     const queryParams = new URLSearchParams({ 'test': 'abc' });
@@ -23,7 +33,7 @@ const ApiPage = () => {
       .then(response => response.json())
       .then(result => {
         const teams = result.sports[0].leagues[0].teams
-        const newMlbTeamData = teams.map(x => ({
+        const newMlbTeamData: TeamData[] = teams.map((x: any) => ({
           name: x.team.displayName,
           abbreviation: x.team.abbreviation,
           color: x.team.color,
@@ -40,6 +50,8 @@ const ApiPage = () => {
         setIsError(true)
       })
   }, []) // must include empty array
+
+  console.log("isready", isReady)
 
   return (
     <Layout>
@@ -60,7 +72,7 @@ const ApiPage = () => {
           <List
             itemLayout="horizontal"
             size="small"
-            dataSource={mlbTeamData}
+            dataSource={isReady ? mlbTeamData : skeletonData}
             renderItem={item => (
               <List.Item>
                 <Skeleton avatar title={false} loading={!isReady} active>
@@ -71,15 +83,13 @@ const ApiPage = () => {
                       </Avatar>
                     }
                     title={item.name}
-                    href={`https://www.mlb.com/${item.abbreviation}`}
                   />
                 </Skeleton>
               </List.Item>
             )}
           />
         </Container>
-      )
-      }
+      )}
 
     </Layout >
   )

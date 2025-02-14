@@ -31,8 +31,8 @@ const PlotPage = () => {
             }
           ]}
           layout={{
-            xaxis: { title: 'Week', fixedrange: true },
-            yaxis: { title: 'Products Sold', fixedrange: true },
+            xaxis: { title: { 'text': 'Week' }, fixedrange: true },
+            yaxis: { title: { 'text': 'Products Sold' }, fixedrange: true },
           }}
         />
       </Container>

@@ -1,7 +1,6 @@
-/**
- * @type {import('gatsby').GatsbyConfig}
- */
-module.exports = {
+import type { GatsbyConfig } from "gatsby";
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
     siteUrl: `https://jackarnold84.github.io/gatsby-template/`
@@ -9,6 +8,15 @@ module.exports = {
   pathPrefix: "/gatsby-template",
   plugins: [
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-image",
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "images",
+        "path": "./src/images/"
+      },
+      __key: "images"
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -23,3 +31,5 @@ module.exports = {
     },
   ]
 };
+
+export default config;

@@ -47,7 +47,11 @@ const MenuButtonHolder = styled.div`
   position: absolute;
 `
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [openMenu, setOpenMenu] = React.useState(false);
 
   const showMenu = () => {

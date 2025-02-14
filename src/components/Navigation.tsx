@@ -9,7 +9,11 @@ const NavLink = styled(Link)`
   width: 100%;
 `
 
-const Navigation = ({ closeMenu }) => {
+interface NavigationProps {
+  closeMenu: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ closeMenu }) => {
   const links = [
     { to: "/", icon: <HomeOutlined />, text: "Home" },
     { to: "/plot", icon: <BarChartOutlined />, text: "Plotly" },
