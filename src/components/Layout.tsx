@@ -20,6 +20,10 @@ const HeaderContent = styled.div`
   margin: auto;
   max-width: 600px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 `
 
 const BodyContainer = styled.div`
@@ -41,9 +45,8 @@ const FooterContent = styled.div`
 `
 
 const MenuButtonHolder = styled.div`
-  float: left;
-  padding: 0px 12px;
   position: absolute;
+  left: 0;
 `
 
 const PageContainer = styled.div`
@@ -61,12 +64,34 @@ const Title = styled.h3`
   color: white;
 `
 
+const MenuButton = styled.button`
+  background-color: ${palette.primary};
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+
+  &:hover {
+    background-color: ${palette.primaryHover};
+  }
+`
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [openMenu, setOpenMenu] = React.useState(false);
+  const [stylesLoaded, setStylesLoaded] = React.useState(false);
+
+  React.useEffect(() => {
+    setStylesLoaded(true);
+  }, []);
 
   const showMenu = () => {
     setOpenMenu(true);
@@ -92,18 +117,22 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <Header>
               <HeaderContent>
                 <MenuButtonHolder>
-                  <Button type="primary" icon={<MenuOutlined />} onClick={showMenu} />
+                  <MenuButton onClick={showMenu}>
+                    <MenuOutlined />
+                  </MenuButton>
                 </MenuButtonHolder>
-                <Link to="/" className="plain-link white-text">
-                  <Title>Gatsby Template</Title>
-                </Link>
+                <Title>
+                  <Link to="/" style={{ "padding": "12px 24px" }}>
+                    Gatsby
+                  </Link>
+                </Title>
               </HeaderContent>
             </Header>
           </div>
 
           <ContentWrapper>
             <BodyContainer>
-              {children}
+              {stylesLoaded ? children : null}
             </BodyContainer>
           </ContentWrapper>
 
