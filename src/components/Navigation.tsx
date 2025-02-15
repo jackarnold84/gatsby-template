@@ -2,12 +2,7 @@ import { BarChartOutlined, HomeOutlined, NodeIndexOutlined } from "@ant-design/i
 import { Button, List } from "antd"
 import { Link } from "gatsby"
 import * as React from "react"
-import styled from "styled-components"
-
-const NavLink = styled(Link)`
-  margin: auto;
-  width: 100%;
-`
+import * as styles from "./layout.module.css"
 
 interface NavigationProps {
   closeMenu: () => void;
@@ -27,11 +22,11 @@ const Navigation: React.FC<NavigationProps> = ({ closeMenu }) => {
         dataSource={links}
         renderItem={item => (
           <List.Item>
-            <NavLink to={item.to}>
+            <Link to={item.to} className={styles.navLink}>
               <Button type="text" icon={item.icon} size="large" block onClick={closeMenu} >
                 {item.text}
               </Button>
-            </NavLink>
+            </Link>
           </List.Item>
         )}
       />
