@@ -25,7 +25,6 @@ const HeaderContent = styled.div`
 const BodyContainer = styled.div`
   margin: auto;
   max-width: 600px;
-  min-height: calc(-152px + 100vh);;
   padding: 16px;
 `
 
@@ -45,6 +44,21 @@ const MenuButtonHolder = styled.div`
   float: left;
   padding: 0px 12px;
   position: absolute;
+`
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
+const ContentWrapper = styled.div`
+  flex: 1;
+`
+
+const Title = styled.h3`
+  margin: 0;
+  color: white;
 `
 
 interface LayoutProps {
@@ -73,46 +87,50 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           },
         }}
       >
-        <div>
-          <Header>
-            <HeaderContent>
-              <MenuButtonHolder>
-                <Button type="primary" icon={<MenuOutlined />} onClick={showMenu} />
-              </MenuButtonHolder>
-              <Link to="/" className="plain-link white-text">
-                <h3>Gatsby Template</h3>
-              </Link>
-            </HeaderContent>
-          </Header>
-        </div>
+        <PageContainer>
+          <div>
+            <Header>
+              <HeaderContent>
+                <MenuButtonHolder>
+                  <Button type="primary" icon={<MenuOutlined />} onClick={showMenu} />
+                </MenuButtonHolder>
+                <Link to="/" className="plain-link white-text">
+                  <Title>Gatsby Template</Title>
+                </Link>
+              </HeaderContent>
+            </Header>
+          </div>
 
-        <BodyContainer>
-          {children}
-        </BodyContainer>
+          <ContentWrapper>
+            <BodyContainer>
+              {children}
+            </BodyContainer>
+          </ContentWrapper>
 
-        <Footer>
-          <FooterContent className="white-text subtext">
-            <Span style={{ fontSize: "14px" }}>
-              Created by Jack Arnold
-            </Span>
-            <Span>
-              <Button
-                type="text"
-                size="small"
-                style={{ color: "white", fontSize: "14px", textDecoration: "none" }}
-                icon={<BiLogoGithub />}
-                href="https://github.com/jackarnold84/gatsby-template"
-              >
-                Github
-              </Button>
-            </Span>
-          </FooterContent>
-        </Footer>
+          <Footer>
+            <FooterContent className="white-text subtext">
+              <Span style={{ fontSize: "14px" }}>
+                Created by Jack Arnold
+              </Span>
+              <Span>
+                <Button
+                  type="text"
+                  size="small"
+                  style={{ color: "white", fontSize: "14px", textDecoration: "none" }}
+                  icon={<BiLogoGithub />}
+                  href="https://github.com/jackarnold84/gatsby-template"
+                >
+                  Github
+                </Button>
+              </Span>
+            </FooterContent>
+          </Footer>
+        </PageContainer>
       </ConfigProvider>
 
       <Drawer title="Gatsby Template" onClose={closeMenu} open={openMenu} placement="top">
         <Navigation closeMenu={closeMenu} />
-      </Drawer >
+      </Drawer>
     </>
   )
 }
