@@ -1,10 +1,8 @@
-import { MenuOutlined } from "@ant-design/icons"
+import { GithubFilled, MenuOutlined } from "@ant-design/icons"
 import { Button, ConfigProvider, Drawer } from "antd"
 import { Link } from "gatsby"
 import * as React from "react"
-import { BiLogoGithub } from "react-icons/bi"
 import '../styles/global.css'
-import { palette } from "../utils/palette"
 import Navigation from "./Navigation"
 import * as styles from "./layout.module.css"
 
@@ -14,11 +12,6 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [openMenu, setOpenMenu] = React.useState(false);
-  const [stylesLoaded, setStylesLoaded] = React.useState(false);
-
-  React.useEffect(() => {
-    setStylesLoaded(true);
-  }, []);
 
   const showMenu = () => {
     setOpenMenu(true);
@@ -30,15 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: palette.primary,
-            fontFamily: "'Source Sans Pro', sans-serif",
-            fontSize: 16,
-          },
-        }}
-      >
+      <ConfigProvider>
         <div className={styles.pageContainer}>
           <header className={styles.header}>
             <div className={styles.headerContent}>
@@ -57,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           <div className={styles.contentWrapper}>
             <div className={styles.bodyContainer}>
-              {stylesLoaded ? children : null}
+              {children}
             </div>
           </div>
 
@@ -71,7 +56,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   type="primary"
                   size="small"
                   className={styles.githubButton}
-                  icon={<BiLogoGithub />}
+                  icon={<GithubFilled />}
                   href="https://github.com/jackarnold84/gatsby-template"
                 >
                   Github
