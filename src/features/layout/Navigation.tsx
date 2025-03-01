@@ -11,8 +11,8 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ closeMenu }) => {
   const links = [
     { to: "/", icon: <HomeOutlined />, text: "Home" },
-    { to: "/plot", icon: <BarChartOutlined />, text: "Plotly" },
-    { to: "/api", icon: <NodeIndexOutlined />, text: "API" },
+    { to: "/plot", icon: <BarChartOutlined />, text: "Plot Demo" },
+    { to: "/dynamic", icon: <NodeIndexOutlined />, text: "Dynamic Demo" },
   ]
 
   return (

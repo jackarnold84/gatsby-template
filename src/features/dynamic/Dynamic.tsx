@@ -1,7 +1,6 @@
 import { Avatar, List, Skeleton } from "antd";
 import React from "react";
-import Layout from "../components/Layout";
-import Container from "../components/common/Container";
+import Container from "../../components/Container";
 
 interface TeamData {
   name: string;
@@ -9,7 +8,7 @@ interface TeamData {
   color: string;
 }
 
-const ApiPage: React.FC = () => {
+const Dynamic: React.FC = () => {
   const [isReady, setIsReady] = React.useState(false)
   const [isError, setIsError] = React.useState(false)
   const [mlbTeamData, setMlbTeamData] = React.useState<TeamData[]>([])
@@ -51,10 +50,8 @@ const ApiPage: React.FC = () => {
       })
   }, []) // must include empty array
 
-  console.log("isready", isReady)
-
   return (
-    <Layout>
+    <>
       <Container size={16} centered >
         <h2>Example API Call</h2>
       </Container>
@@ -91,10 +88,8 @@ const ApiPage: React.FC = () => {
         </Container>
       )}
 
-    </Layout >
+    </ >
   )
 }
 
-export default ApiPage
-
-export const Head = () => <title>API Page</title>
+export default Dynamic

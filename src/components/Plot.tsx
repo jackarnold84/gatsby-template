@@ -3,7 +3,7 @@ import { Config, Data, Layout, Template } from 'plotly.js';
 import React from "react";
 import Loadable from "react-loadable";
 import styled from 'styled-components';
-import { palette } from '../../utils/palette';
+import { palette } from '../styles/palette';
 
 /*
   documentation:
