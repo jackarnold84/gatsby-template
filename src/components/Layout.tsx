@@ -28,9 +28,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <header className={styles.header}>
             <div className={styles.headerContent}>
               <div className={styles.menuButtonHolder}>
-                <button type="button" className={styles.menuButton} onClick={showMenu} title="Open Nav Menu">
-                  <MenuOutlined />
-                </button>
+                <Button
+                  type="primary"
+                  icon={<MenuOutlined />}
+                  onClick={showMenu}
+                />
               </div>
               <h3 className={styles.title}>
                 <Link to="/" className={styles.link}>
@@ -65,11 +67,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </footer>
         </div>
-      </ConfigProvider>
 
-      <Drawer title="Gatsby Template" onClose={closeMenu} open={openMenu} placement="top">
-        <Navigation closeMenu={closeMenu} />
-      </Drawer>
+        <Drawer title="Gatsby Template" onClose={closeMenu} open={openMenu} placement="top">
+          <Navigation closeMenu={closeMenu} />
+        </Drawer>
+      </ConfigProvider>
     </>
   )
 }

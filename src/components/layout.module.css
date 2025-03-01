@@ -59,23 +59,6 @@
   color: white;
 }
 
-.menuButton {
-  background-color: var(--primary-color);
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-}
-
-.menuButton:hover {
-  background-color: var(--primary-hover-color);
-}
-
 .link {
   padding: 12px 24px;
 }
