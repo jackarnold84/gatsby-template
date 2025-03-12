@@ -1,8 +1,19 @@
-import { BarChartOutlined, HomeOutlined, NodeIndexOutlined } from "@ant-design/icons"
 import { Button, List } from "antd"
 import { Link } from "gatsby"
 import * as React from "react"
+import { FaBolt, FaChartLine, FaHome } from "react-icons/fa"
+import styled from "styled-components"
 import * as styles from "./layout.module.css"
+
+export const MenuButton = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  & > span {
+    margin-left: 6px;
+  }
+`;
 
 interface NavigationProps {
   closeMenu: () => void;
@@ -10,9 +21,9 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ closeMenu }) => {
   const links = [
-    { to: "/", icon: <HomeOutlined />, text: "Home" },
-    { to: "/plot", icon: <BarChartOutlined />, text: "Plot Demo" },
-    { to: "/dynamic", icon: <NodeIndexOutlined />, text: "Dynamic Demo" },
+    { to: "/", icon: <FaHome />, text: "Home" },
+    { to: "/plot", icon: <FaChartLine />, text: "Plot Demo" },
+    { to: "/dynamic", icon: <FaBolt />, text: "Dynamic Demo" },
   ]
 
   return (
@@ -23,9 +34,9 @@ const Navigation: React.FC<NavigationProps> = ({ closeMenu }) => {
         renderItem={item => (
           <List.Item>
             <Link to={item.to} className={styles.navLink}>
-              <Button type="text" icon={item.icon} size="large" block onClick={closeMenu} >
+              <MenuButton type="text" icon={item.icon} size="large" block onClick={closeMenu} >
                 {item.text}
-              </Button>
+              </MenuButton>
             </Link>
           </List.Item>
         )}

@@ -1,18 +1,31 @@
-import { TruckOutlined } from "@ant-design/icons"
-import { Button, Form, Input, Radio, Table } from "antd"
+import { Button, Form, Input, Radio } from "antd"
+import { Link } from "gatsby"
 import * as React from "react"
+import { FaBolt, FaChartLine } from "react-icons/fa"
 import styled from "styled-components"
-import Container from "../../components/Container"
-import Span from "../../components/Span"
+import { MenuButton } from "../layout/Navigation"
 
-const SectionHeader = styled.h3`
-  text-align: center;
-  padding-top: 8px;
-  padding-bottom: 16px;
-`
+import Container from "../../components/Container"
+import chicagoBanner from "../../images/chicago-banner.jpg"
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
+
+const NavLink = styled(Link)`
+  margin: auto;
+  width: 100%;
+  margin: 8px 0;
+`;
 
 const Home = () => {
-  const [tab, setTab] = React.useState('apple')
+  const [tab, setTab] = React.useState('contact')
+
+  const links = [
+    { to: "/plot", icon: <FaChartLine />, text: "Plot Demo" },
+    { to: "/dynamic", icon: <FaBolt />, text: "Dynamic Demo" },
+  ]
 
   return (
     <>
@@ -21,55 +34,29 @@ const Home = () => {
         <p>Starter template for Gatsby projects with various reusable components</p>
       </Container>
 
+      {/* TODO: replace with gatsby static image */}
+      <Container bottom={32}>
+        <StyledImage src={chicagoBanner} alt="Train" />
+      </Container>
 
-      <Container size={16} width={400}>
-        <SectionHeader>Sign In Form</SectionHeader>
-        <Form
-          onFinish={(values) => { console.log(values) }}
-          autoComplete="off"
-          layout="vertical"
-        >
-          <Form.Item label="Username" name="username" rules={[{ required: true }]} >
-            <Input />
-          </Form.Item>
-          <Form.Item label="Password" name="password" rules={[{ required: true }]} >
-            <Input.Password />
-          </Form.Item>
-          <Container centered>
-            <Form.Item>
-              <Button type="primary" htmlType="submit">Submit</Button>
-            </Form.Item>
+      <Container width={500}>
+        {links.map(link => (
+          <Container key={link.to}>
+            <NavLink to={link.to}>
+              <MenuButton type="primary" icon={link.icon} size="large" block>
+                {link.text}
+              </MenuButton>
+            </NavLink>
           </Container>
-        </Form>
+        ))}
       </Container>
 
-      <Container size={16} width={500}>
-        <SectionHeader>Statistics</SectionHeader>
-        <Table
-          columns={[
-            { title: 'Brand', dataIndex: 'brand', key: 'brand' },
-            { title: 'Model', dataIndex: 'model', key: 'model' },
-            { title: 'Loft', dataIndex: 'loft', key: 'loft', sorter: (a, b) => a.loft - b.loft },
-          ]}
-          dataSource={[
-            { key: 1, brand: 'Titleist', model: '775CB', loft: 37 },
-            { key: 2, brand: 'Mizuno', model: 'JPX923 Hot Metal', loft: 33 },
-            { key: 3, brand: 'Ping', model: 'G425', loft: 34.5 },
-            { key: 4, brand: 'Taylormade', model: 'Stealth', loft: 32 },
-          ]}
-          size="small"
-          pagination={false}
-        />
-      </Container>
-
-      <Container size={16} width={500}>
-        <SectionHeader>Tabs</SectionHeader>
+      <Container top={32} bottom={16} width={400}>
         <Container centered>
           <Radio.Group
             options={[
-              { label: 'Apple', value: 'apple' },
-              { label: 'Pear', value: 'pear' },
-              { label: 'Orange', value: 'orange' }
+              { label: 'Contact', value: 'contact' },
+              { label: 'About', value: 'about' },
             ]}
             optionType="button"
             buttonStyle="solid"
@@ -78,15 +65,43 @@ const Home = () => {
           />
         </Container>
 
-        <Container centered>
-          <Span>
-            <TruckOutlined />
-          </Span>
-          <Span>
-            Truck full of {tab}s
-          </Span>
-        </Container>
+        {tab == 'contact' && (
+          <Container>
+            <Container centered>
+              <h4>Contact Us</h4>
+            </Container>
+            <Form
+              onFinish={(values) => { console.log(values) }}
+              autoComplete="off"
+              layout="vertical"
+            >
+              <Form.Item label="Name" name="name" rules={[{ required: true }]} >
+                <Input />
+              </Form.Item>
+              <Form.Item label="Message" name="message" rules={[{ required: true }]} >
+                <Input.TextArea />
+              </Form.Item>
+              <Container centered>
+                <Form.Item>
+                  <Button type="primary" htmlType="submit">Submit</Button>
+                </Form.Item>
+              </Container>
+            </Form>
+          </Container>
+        )}
 
+        {tab == 'about' && (
+          <Container>
+            <Container centered>
+              <h4>About Us</h4>
+            </Container>
+            <Container width={350}>
+              This is a starter template for building a static generated front-end.
+              Content is pre-loaded and any dynamic content must be fetched in the
+              client.
+            </Container>
+          </Container>
+        )}
       </Container>
     </>
   )
