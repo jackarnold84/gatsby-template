@@ -1,17 +1,11 @@
 import { Button, Form, Input, Radio } from "antd"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import { FaBolt, FaChartLine } from "react-icons/fa"
 import styled from "styled-components"
-import { MenuButton } from "../layout/Navigation"
-
 import Container from "../../components/Container"
-import chicagoBanner from "../../images/chicago-banner.jpg"
-
-const StyledImage = styled.img`
-  width: 100%;
-  height: auto;
-`;
+import { MenuButton } from "../layout/Navigation"
 
 const NavLink = styled(Link)`
   margin: auto;
@@ -34,9 +28,8 @@ const Home = () => {
         <p>Starter template for Gatsby projects with various reusable components</p>
       </Container>
 
-      {/* TODO: replace with gatsby static image */}
       <Container bottom={32}>
-        <StyledImage src={chicagoBanner} alt="Train" />
+        <StaticImage src="../../images/chicago-banner.jpg" alt="Train" placeholder="blurred" layout="constrained" />
       </Container>
 
       <Container width={500}>
