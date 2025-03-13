@@ -2,6 +2,7 @@
   --primary-color: #6b37bf;
   --primary-hover-color: #8b5ccc;
   --header-text-color: white;
+  --header-text-hover-color: #e9d9ff;
 }
 
 .header {
@@ -65,6 +66,10 @@
 
 .link {
   padding: 12px 24px;
+}
+
+.link:hover {
+  color: var(--header-text-hover-color);
 }
 
 .footerText {
