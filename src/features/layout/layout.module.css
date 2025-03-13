@@ -44,6 +44,10 @@
   left: 0;
 }
 
+.menuButton {
+  box-shadow: none;
+}
+
 .pageContainer {
   display: flex;
   flex-direction: column;
@@ -72,6 +76,7 @@
   color: white;
   font-size: 14px;
   text-decoration: none;
+  box-shadow: none;
   margin: 0px 8px;
 }
 

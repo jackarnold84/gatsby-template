@@ -30,6 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div className={styles.menuButtonHolder}>
                 <Button
                   type="primary"
+                  className={styles.menuButton}
                   icon={<MenuOutlined />}
                   onClick={showMenu}
                 />
