@@ -18,7 +18,7 @@ const Home = () => {
 
   const links = [
     { to: "/plot", icon: <FaChartLine />, text: "Plot Demo" },
-    { to: "/dynamic", icon: <FaBolt />, text: "Dynamic Demo" },
+    { to: "/dynamic?league=mlb", icon: <FaBolt />, text: "Dynamic Demo" },
   ]
 
   return (
