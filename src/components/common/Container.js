@@ -1,26 +1,16 @@
+import PropTypes from 'prop-types';
 import styled from "styled-components";
 
-interface ContainerProps {
-  size?: number;
-  top?: number;
-  bottom?: number;
-  width?: number;
-  centered?: boolean;
-  flex?: boolean;
-}
-
-const Container = styled('div').withConfig({
-  shouldForwardProp: (prop) => !['centered', 'flex', 'top', 'bottom', 'size', 'width'].includes(prop),
-}).attrs<ContainerProps>(({
+const Container = styled.div.attrs(({
   size = 8, top, bottom, width, centered = false, flex = false,
 }) => ({
   size,
-  top: top ?? size,
-  bottom: bottom ?? size,
+  top: top !== undefined ? top : size,
+  bottom: bottom !== undefined ? bottom : size,
   width,
   centered,
   flex,
-})) <ContainerProps>`
+}))`
   margin: auto;
   padding-top: ${props => props.top}px;
   padding-bottom: ${props => props.bottom}px;
@@ -35,5 +25,14 @@ const Container = styled('div').withConfig({
     display: flex;
   `}
 `
+
+Container.propTypes = {
+  size: PropTypes.number,
+  top: PropTypes.number,
+  bottom: PropTypes.number,
+  width: PropTypes.number,
+  centered: PropTypes.bool,
+  flex: PropTypes.bool,
+}
 
 export default Container

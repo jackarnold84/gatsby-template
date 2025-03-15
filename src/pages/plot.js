@@ -1,11 +1,14 @@
 import React from "react"
-import Container from "../../components/Container"
-import Plot from "../../components/Plot"
-import { palette } from "../../styles/palette"
 
-const PlotDemo = () => {
+import Layout from "../components/Layout"
+import Container from "../components/common/Container"
+import Plot from "../components/common/Plot"
+import { palette } from "../utils/palette"
+
+
+const PlotPage = () => {
   return (
-    <>
+    <Layout>
       <Container size={16} centered >
         <h2>Plots</h2>
       </Container>
@@ -28,13 +31,15 @@ const PlotDemo = () => {
             }
           ]}
           layout={{
-            xaxis: { title: { 'text': 'Week' }, fixedrange: true },
-            yaxis: { title: { 'text': 'Products Sold' }, fixedrange: true },
+            xaxis: { title: 'Week', fixedrange: true },
+            yaxis: { title: 'Products Sold', fixedrange: true },
           }}
         />
       </Container>
-    </>
+    </Layout>
   )
 }
 
-export default PlotDemo
+export default PlotPage
+
+export const Head = () => <title>Plot Page</title>
